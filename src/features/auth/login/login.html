@@ -1,1 +1,20 @@
-<p>login works!</p>
+ <section class="login-container">
+      <form [formGroup]="form()" (ngSubmit)="onSubmit()" class="login-form">
+        <h2 class="login-title">Admin Login</h2>
+        <mat-form-field appearance="fill" class="login-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" autocomplete="username" required />
+          @if (emailInvalid()) {
+            <mat-error>Email is required and must be valid.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="login-field">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" autocomplete="current-password" required />
+          @if (passwordInvalid()) {
+            <mat-error>Password is required.</mat-error>
+          }
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form().invalid">Login</button>
+      </form>
+    </section>

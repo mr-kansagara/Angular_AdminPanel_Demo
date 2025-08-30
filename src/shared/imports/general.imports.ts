@@ -5,7 +5,6 @@ import { RouterModule } from "@angular/router";
 
 
 export const GENERAL_IMPORTS = [
-    // Angular Material Components
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

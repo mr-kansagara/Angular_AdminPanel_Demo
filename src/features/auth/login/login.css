@@ -1,0 +1,28 @@
+ .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--mat-background);
+    }
+    .login-form {
+      width: 100%;
+      max-width: 360px;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      background: var(--mat-card-background);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .login-title {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--mat-primary);
+    }
+    .login-field {
+      width: 100%;
+    }

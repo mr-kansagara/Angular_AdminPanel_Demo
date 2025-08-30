@@ -1,1 +1,27 @@
-<p>register works!</p>
+<section class="register-container">
+      <form [formGroup]="form()" (ngSubmit)="onSubmit()" class="register-form">
+        <h2 class="register-title">Create Account</h2>
+        <mat-form-field appearance="fill" class="register-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" type="text" autocomplete="name" required />
+          @if (nameInvalid()) {
+            <mat-error>Name is required.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="register-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" autocomplete="username" required />
+          @if (emailInvalid()) {
+            <mat-error>Email is required and must be valid.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="register-field">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" autocomplete="new-password" required />
+          @if (passwordInvalid()) {
+            <mat-error>Password is required (min 6 chars).</mat-error>
+          }
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="form().invalid">Register</button>
+      </form>
+    </section>

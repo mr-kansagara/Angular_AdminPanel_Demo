@@ -7,3 +7,8 @@ export const ENDPOINTS = {
         REGISTER: AUTH_BASE + "/register"
     }
 };
+
+export enum ROUTES_ENUMS {
+    LOGIN = "login",
+    REGISTER = "register"
+}
