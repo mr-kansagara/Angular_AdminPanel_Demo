@@ -1,5 +1,6 @@
 const AUTH_BASE : string = "auth"
 const DASHBOARD_BASE : string = "dashboard"
+const PRODUCTS_BASE : string = "products"
 
 export const ENDPOINTS = {
     AUTH: {
@@ -10,11 +11,17 @@ export const ENDPOINTS = {
     DASHBOARD :{
         BASE : DASHBOARD_BASE,
         HOME : DASHBOARD_BASE + "/home"
+    },
+    PRODUCTS: {
+        BASE: PRODUCTS_BASE,
+        LIST: PRODUCTS_BASE + "/list"
     }
 };
 
 export enum ROUTES_ENUMS {
     LOGIN = "login",
     REGISTER = "register",
-    HOME = "home"
+    HOME = "home",
+    PRODUCT_LIST = "list"
+
 }

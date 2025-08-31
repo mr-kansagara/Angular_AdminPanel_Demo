@@ -3,8 +3,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { Register } from "./register/register";
 import { ROUTES_ENUMS } from "../../constants/Endpoint.constant";
 import { Login } from "./login/login";
-import { NgModel } from "@angular/forms";
-import { routes } from "../../app/app.routes";
 import { NgModule } from "@angular/core";
 import { authGuard } from "../../core/guards/auth-guard";
 

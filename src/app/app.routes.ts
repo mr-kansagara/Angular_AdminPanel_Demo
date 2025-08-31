@@ -10,5 +10,9 @@ export const routes: Routes = [
   {
     path : ENDPOINTS.DASHBOARD.BASE,
     loadChildren: () => import('../features/dashboard/dashboard-module').then((m) => m.DashboardModule),
+  },
+  {
+    path: ENDPOINTS.PRODUCTS.BASE,
+    loadChildren: () => import('../features/products/products-module').then((m) => m.ProductsModule),
   }
 ];
