@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  login() : void {
+  private http = inject(HttpClient);
+  constructor() { }
+  
+  login(): void {
     // Implement login logic here
   }
-
-  logout() : void{
+  
+  logout(): void {
     // Implement logout logic here
   }
 
@@ -27,4 +31,19 @@ export class AuthService {
     // Implement registration logic here
   }
 
+  //http client demonstration
+  getData() {
+    return this.http.get('/api/data').pipe(
+      map(response => {
+        return response;
+      })
+    );
+  }
+  getAuthToken(): string {
+    return 'dummy-auth-token';
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getAuthToken();
+  }
 }

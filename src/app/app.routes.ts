@@ -7,4 +7,8 @@ export const routes: Routes = [
     path: ENDPOINTS.AUTH.BASE,
     loadChildren: () => import('../features/auth/auth-module').then((m) => m.AuthModule),
   },
+  {
+    path : ENDPOINTS.DASHBOARD.BASE,
+    loadChildren: () => import('../features/dashboard/dashboard-module').then((m) => m.DashboardModule),
+  }
 ];
