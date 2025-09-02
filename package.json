@@ -30,6 +30,10 @@
     "@angular/material": "^20.2.1",
     "@angular/platform-browser": "^20.2.0",
     "@angular/router": "^20.2.0",
+    "@flowjs/flow.js": "^2.14.1",
+    "@flowjs/ngx-flow": "^20.0.2",
+    "@ng-doc/ui-kit": "^20.1.0",
+    "ngx-vflow": "^1.14.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -37,6 +41,7 @@
     "@angular/build": "^20.2.1",
     "@angular/cli": "^20.2.1",
     "@angular/compiler-cli": "^20.2.0",
+    "@types/flowjs__flow.js": "^2.13.3",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",

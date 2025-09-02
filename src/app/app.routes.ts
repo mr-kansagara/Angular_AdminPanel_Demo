@@ -14,5 +14,13 @@ export const routes: Routes = [
   {
     path: ENDPOINTS.PRODUCTS.BASE,
     loadChildren: () => import('../features/products/products-module').then((m) => m.ProductsModule),
+  },
+  {
+    path: ENDPOINTS.NGXFLOW.BASE,
+    loadChildren: () => import('../features/ngx-flow-demo/ngx-flow-demo.module').then((m) => m.NgxFlowDemoModule),
+  },
+  {
+    path: ENDPOINTS.CUSTOME_NODES.BASE,
+    loadChildren: () => import('../features/custome-nodes/custome-nodes.module').then((m) => m.CustomeNodesModule),
   }
 ];
