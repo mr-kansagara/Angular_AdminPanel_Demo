@@ -1,56 +1,75 @@
 <div class="node-demo-main">
-    <div class="header">
-        <h2>Custom Node Handling</h2>
-        <p>Demonstrates handling node changes like position, selection, addition and edge addition.</p>
-
-    </div>
-    <div>
-        <button mat-raised-button (click)="addNodes()">Add nodes</button>
-    </div>
+  <div class="header">
+    <h2>Custom Node Handling</h2>
+    <p>Demonstrates handling node changes like position, selection, addition and edge addition.</p>
+  </div>
+  <div>
+    <button mat-raised-button (click)="addNodes()">Add nodes</button>
+  </div>
 </div>
 
-<vflow view="auto" [nodes]="nodes" [edges]="edges" (onConnect)="createEdge($event)"
-    	(onNodesChange.position.single)="handleNodePositionChange($event)"
-    (onNodesChange.select.single)="handleNodeSelectChange($event)"
-    (onNodesChange.add.many)="handleNodesAddChange($event)" (onEdgesChange.add)="handleEdgesAddChange($event)"
-    [background]="{ type: 'dots' }">
+<vflow
+  view="auto"
+  [nodes]="nodes"
+  [edges]="edges"
+  (onConnect)="createEdge($event)"
+  (onNodesChange.position.single)="handleNodePositionChange($event)"
+  (onNodesChange.select.single)="handleNodeSelectChange($event)"
+  (onNodesChange.add.many)="handleNodesAddChange($event)"
+  (onEdgesChange.add)="handleEdgesAddChange($event)"
+  [background]="{ type: 'dots' }"
+>
+  <ng-template let-ctx nodeHtml>
+    <div
+      [class.custom-node_selected]="ctx.selected()"
+      (keydown.backspace)="ctx.selected() && deleteNode(ctx.node)"
+      selectable
+    >
+      <button class="custom-node" (dblclick)="openToast(ctx.node)" (rtclick)="openToast(ctx.node)">
+        <p>{{ ctx.node.text }}</p>
+      </button>
 
-    <ng-template let-ctx nodeHtml>
-        <div [class.custom-node_selected]="ctx.selected()" (keydown.backspace)="ctx.selected() && deleteNode(ctx.node)"
-            selectable>
-            <button class="custom-node" (dblclick)="openToast(ctx.node)">
-                <p>{{ ctx.node.text }} </p>
-            </button>
+      <node-toolbar position="top">
+        <button matButton="tonal" (click)="deleteNode(ctx.node)">
+          <mat-icon>delete</mat-icon>delete
+        </button>
+      </node-toolbar>
 
-            <node-toolbar position="top">
-                <button matButton="tonal" (click)="DeleteNode(ctx.node)"><mat-icon>delete</mat-icon>delete</button>
-            </node-toolbar>
+      <node-toolbar position="bottom">
+        <button matButton="tonal" (click)="openToast(ctx.node)">Action</button>
+      </node-toolbar>
 
-            <node-toolbar position="bottom">
-                <button matButton="tonal" (click)="openToast(ctx.node)">Action</button>
-            </node-toolbar>
+      <handle type="target" position="left" />
+      <handle type="source" position="right" />
+    </div>
+  </ng-template>
 
+  <ng-template let-ctx edgeLabelHtml>
+    <div
+      class="label"
+      [style.background-color]="ctx.label.data.color"
+      [style.color]="ctx.label.data.fontColor"
+      [style.padding]="ctx.label.data.padding"
+      (click)="deleteEdge(ctx.edge)"
+    >
+      X
+    </div>
+  </ng-template>
 
-            <handle type="target" position="left" />
-            <handle type="source" position="right" />
-        </div>
-    </ng-template>
-
-
-    <ng-template let-ctx edge>
+  <ng-template let-ctx edge>
     <svg:g
       class="without-tab-index custom-template-edge"
       tabindex="0"
       customTemplateEdge
       selectable
-      (keydown.backspace)="ctx.selected() && deleteEdge(ctx.edge)">
+      (keydown.backspace)="ctx.selected() && deleteEdge(ctx.edge)"
+    >
       <svg:path
         fill="none"
         stroke-width="2"
         [attr.d]="ctx.path()"
-        [attr.stroke]="ctx.selected() ? '#0f4c75' : '#bbe1fa'" />
+        [attr.stroke]="ctx.selected() ? '#0f4c75' : '#bbe1fa'"
+      />
     </svg:g>
   </ng-template>
-
-
 </vflow>

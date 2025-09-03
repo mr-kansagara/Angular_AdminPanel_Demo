@@ -10,7 +10,8 @@ import { FlowInjectionToken } from '@flowjs/ngx-flow';
   declarations: [],
   imports: [
     CommonModule,
-    CustomeNodesRoutingModule
+    CustomeNodesRoutingModule,
+
   ],
     providers: [
     { provide: FlowInjectionToken, useValue: Flow }

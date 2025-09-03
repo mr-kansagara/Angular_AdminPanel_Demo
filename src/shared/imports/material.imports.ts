@@ -9,19 +9,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
 export const MATERIAL_IMPORTS = [
-    // Angular Material Components
-    MatSidenavModule, 
-    MatIconModule, 
-    MatToolbarModule, 
-    MatButtonModule, 
-    MatListModule, 
-    MatCardModule, 
-    MatInputModule, 
-    MatFormFieldModule, 
-    MatSnackBarModule, 
-    MatProgressBarModule
+  // Angular Material Components
+  MatSidenavModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatListModule,
+  MatCardModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatSnackBarModule,
+  MatProgressBarModule
 ];
 
 export const MATERIAL_EXPORTS = [
